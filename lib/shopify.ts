@@ -16,7 +16,7 @@ async function gql(query: string, variables = {}) {
     },
     body: JSON.stringify({ query, variables }),
   })
-  const json = await resp.json()
+  const json: any = await resp.json()
   if (json.errors) throw new Error(JSON.stringify(json.errors))
   return json.data
 }
